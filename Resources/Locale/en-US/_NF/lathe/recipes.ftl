@@ -42,3 +42,4 @@ lathe-recipe-NFInflatableDoorStack1-name = inflatable door
 lathe-recipe-NFInflatableDoorWindowStack1-name = inflatable windoor
 lathe-recipe-NFInflatableDockStack1-name = inflatable dock
 lathe-recipe-NFInflatableCrateStack1-name = inflatable crate
+lathe-recipe-NFInflatableFloorStack1-name = inflatable floor
