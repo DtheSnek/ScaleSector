@@ -122,47 +122,47 @@
   - type: StaticPrice
     price: 400
 
-- type: entity
-  parent: BaseNFFlatpack
-  id: RDServerUSSPFlatpack
-  name: ussp research and development server flatpack
-  description: A flatpack used for constructing a USSP research and development server.
-  components:
-  - type: Flatpack
-    entity: ResearchAndDevelopmentServerUssp
-  - type: StaticPrice
-    vendPrice: 1500
-  - type: Sprite
-    layers:
-    - state: science_server
+# - type: entity
+  # parent: BaseNFFlatpack
+  # id: RDServerUSSPFlatpack
+  # name: ussp research and development server flatpack
+  # description: A flatpack used for constructing a USSP research and development server.
+  # components:
+  # - type: Flatpack
+    # entity: ResearchAndDevelopmentServer
+  # - type: StaticPrice
+    # vendPrice: 1500
+  # - type: Sprite
+    # layers:
+    # - state: science_server
 
-- type: entity
-  parent: BaseNFFlatpack
-  id: RDServerRogueFlatpack
-  name: rogue research and development server flatpack
-  description: A flatpack used for constructing a Rogue research and development server.
-  components:
-  - type: Flatpack
-    entity: ResearchAndDevelopmentServerRogues
-  - type: StaticPrice
-    price: 1500
-  - type: Sprite
-    layers:
-    - state: science_server
+# - type: entity
+  # parent: BaseNFFlatpack
+  # id: RDServerRogueFlatpack
+  # name: rogue research and development server flatpack
+  # description: A flatpack used for constructing a Rogue research and development server.
+  # components:
+  # - type: Flatpack
+    # entity: ResearchAndDevelopmentServer
+  # - type: StaticPrice
+    # price: 1500
+  # - type: Sprite
+    # layers:
+    # - state: science_server
 
-- type: entity
-  parent: BaseNFFlatpack
-  id: RDServerTSFFlatpack
-  name: TSF research and development server flatpack
-  description: A flatpack used for constructing a TSF research and development server.
-  components:
-  - type: Flatpack
-    entity: ResearchAndDevelopmentServerTSFMC
-  - type: StaticPrice
-    price: 1500
-  - type: Sprite
-    layers:
-    - state: science_server
+# - type: entity
+  # parent: BaseNFFlatpack
+  # id: RDServerTSFFlatpack
+  # name: TSF research and development server flatpack
+  # description: A flatpack used for constructing a TSF research and development server.
+  # components:
+  # - type: Flatpack
+    # entity: ResearchAndDevelopmentServer
+  # - type: StaticPrice
+    # price: 1500
+  # - type: Sprite
+    # layers:
+    # - state: science_server
 
 - type: entity
   parent: BaseNFFlatpack
@@ -222,7 +222,7 @@
   description: A flatpack used for constructing a construction box.
   components:
   - type: Flatpack
-    entity: ConstructionBox
+    entity: NFMagnetBoxConstruction
   - type: StaticPrice
     price: 500
   - type: PhysicalComposition
@@ -277,24 +277,13 @@
 
 - type: entity
   parent: BaseFlatpack
-  id: LaserDrillFlatpack
-  name: laser drill flatpack
-  description: A flatpack used for constructing an automated laser drill.
-  components:
-  - type: Flatpack
-    entity: LaserDrill
-  - type: StaticPrice
-    price: 3000
-    vendPrice: 20000
-
-- type: entity
-  parent: BaseFlatpack
   id: ResearchAndDevelopmentServerMercFlatpack
   name: mercenary R&D server flatpack
   description: A flatpack used for constructing a mercenary R&D server.
   components:
   - type: Flatpack
-    entity: ResearchAndDevelopmentServerMerc
+    entity: ResearchAndDevelopmentServer
   - type: StaticPrice
     price: 4000
     vendPrice: 10000
+

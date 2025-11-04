@@ -45,7 +45,6 @@
     shotsPerBurst: 28
     selectedMode: Burst
     availableModes: Burst
-    shootThermalSignature: 2000000 # ~4.9km if firing continuously
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
     soundEmpty:
@@ -144,7 +143,6 @@
     fireRate: 0.8
     minAngle: 0
     maxAngle: 0
-    shootThermalSignature: 8000000 # ~5km if firing continuously
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
     soundEmpty:
@@ -252,7 +250,6 @@
     range: 500
   - type: Gun
     fireRate: 0.5
-    shootThermalSignature: 32000000 # ~5.6km
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
     soundEmpty:

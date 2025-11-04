@@ -186,8 +186,6 @@
     board: MachineGCSStationCircuitboard
   - type: FireControlServer
     processingPower: 3000
-    enforceMaxConsoles: true
-    maxConsoles: 2
   - type: Battery
     maxCharge: 2500
     startingCharge: 2500

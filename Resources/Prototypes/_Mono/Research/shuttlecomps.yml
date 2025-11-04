@@ -7,7 +7,7 @@
 
 - type: technology
   id: ShuttleArmamentComponentsResearch
-  name: research-technology-shuttle-armaments-components
+  name: Shuttle armament components
   icon:
     sprite: _Mono/Structures/ShuttleComponents/shield.rsi
     state: control
@@ -24,7 +24,7 @@
 
 - type: technology
   id: ShuttleRadarResearch
-  name: research-technology-shuttle-radar-components
+  name: Shuttle radar components
   icon:
     sprite: Structures/Shuttles/iff.rsi
     state: helm
@@ -37,7 +37,7 @@
 
 - type: technology
   id: ShuttleCtla25DriveResearch
-  name: research-technology-bluespace-drive-ctla25
+  name: Bluespace drive CTLA-25
   icon:
     sprite: _Mono/Structures/ShuttleComponents/drive.rsi
     state: control
@@ -49,7 +49,7 @@
 
 - type: technology
   id: ShuttleCtlaAdvancedDriveResearch
-  name: research-technology-bluespace-drive-ctla-advanced
+  name: Bluespace drive CTLA advanced
   icon:
     sprite: _Mono/Structures/ShuttleComponents/drive.rsi
     state: control

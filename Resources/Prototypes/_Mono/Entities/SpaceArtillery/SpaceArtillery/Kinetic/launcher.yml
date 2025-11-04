@@ -45,7 +45,6 @@
     projectileSpeed: 160
     minAngle: 0
     maxAngle: 5
-    shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
     soundEmpty:
@@ -116,7 +115,6 @@
     projectileSpeed: 180
     minAngle: 0
     maxAngle: 8
-    shootThermalSignature: 100000 # ~4.5km if firing continuously
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
     soundEmpty:
@@ -183,7 +181,6 @@
     projectileSpeed: 250
     minAngle: 0
     maxAngle: 2
-    shootThermalSignature: 2000000 # ~3.5km signature if firing continuously
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/mortar.ogg
     soundEmpty:
@@ -488,7 +485,6 @@
     shotsPerBurst: 10
     selectedMode: Burst
     availableModes: Burst
-    shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/120mm_mortar.ogg
     soundEmpty:
@@ -551,7 +547,6 @@
     minAngle: 0
     maxAngle: 0
     projectileSpeed: 800
-    shootThermalSignature: 20000000 # ~4.5km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
     soundEmpty:
@@ -781,7 +776,6 @@
     projectileSpeed: 200
     minAngle: 0
     maxAngle: 5
-    shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
     soundEmpty:
@@ -846,7 +840,6 @@
     projectileSpeed: 170
     minAngle: 0
     maxAngle: 3
-    shootThermalSignature: 2000000 # ~4.5km signature if firing continuously
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/120mm_mortar.ogg
     soundEmpty:
@@ -923,7 +916,6 @@
     shotsPerBurst: 3
     selectedMode: Burst
     availableModes: Burst
-    shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
     soundEmpty:

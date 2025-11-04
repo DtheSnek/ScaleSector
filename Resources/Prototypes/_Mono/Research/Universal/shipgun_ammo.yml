@@ -6,11 +6,11 @@
 
 - type: technology
   id: UniversalRailgunAmmo
-  name: research-technology-universal-railgun-ammo
+  name: Universal railgun ammo
   icon:
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/charonslug.rsi
     state: railgun_slug
-  discipline: FactionUniversal
+  discipline: Arsenal
   tier: 1
   cost: 20000
   recipeUnlocks:
@@ -18,28 +18,25 @@
 
 - type: technology
   id: UniversalSubnuclearRailgunAmmo
-  name: research-technology-universal-railgun-ammo-subnuclear
+  name: Universal subnuclear railgun ammo
   icon:
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/charonslug.rsi
     state: subnuclear
-  entityIcon: CharonSubnuclearSlugAmmo
-  discipline: FactionUniversal
+  discipline: Arsenal
   tier: 3
   cost: 80000
   recipeUnlocks:
   - CharonSubnuclearSlugUniversal
   technologyPrerequisites:
   - UniversalRailgunAmmo
-  - UniversalMaterialResearchT3
-  position: 10, 14
 
 - type: technology
   id: UniversalTorpedoAmmo
-  name: research-technology-universal-asm220-ammo
+  name: Universal ASM-220 ammo
   icon:
     sprite: _Mono/Objects/ShuttleWeapons/asm220.rsi
     state: space_artillery
-  discipline: FactionUniversal
+  discipline: Arsenal
   tier: 2
   cost: 30000
   recipeUnlocks:
@@ -48,11 +45,11 @@
 
 - type: technology
   id: UniversalTorpedoAmmoAdvanced
-  name: research-technology-universal-asm220-advanced
+  name: Universal ASM-220 advanced ammo
   icon:
     sprite: _Mono/Objects/ShuttleWeapons/asm220.rsi
     state: space_artillery
-  discipline: FactionUniversal
+  discipline: Arsenal
   tier: 3
   cost: 20000
   recipeUnlocks:
@@ -60,11 +57,11 @@
 
 - type: technology
   id: Universal150mmAmmo
-  name: research-technology-universal-150mm-ammo
+  name: Universal 150mm ammo
   icon:
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/150mmtarnyx.rsi
     state: 150mm_standard
-  discipline: FactionUniversal
+  discipline: Arsenal
   tier: 1
   cost: 15000
   recipeUnlocks:
@@ -73,11 +70,11 @@
 
 - type: technology
   id: UniversalLightFighterOrdinance
-  name: research-technology-universal-light-fighter-ordinance
+  name: Universal light fighter ordnance
   icon:
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/GPO.rsi
     state: GPO
-  discipline: FactionUniversal
+  discipline: Arsenal
   tier: 1
   cost: 20000
   recipeUnlocks:
@@ -86,11 +83,11 @@
 
 - type: technology
   id: UniversalAdvancedLightFighterOrdinance
-  name: research-technology-universal-advanced-light-fighter-ordinance
+  name: Universal advanced light fighter ordnance
   icon:
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/quasar.rsi
     state: quasar
-  discipline: FactionUniversal
+  discipline: Arsenal
   tier: 3
   cost: 40000
   recipeUnlocks:

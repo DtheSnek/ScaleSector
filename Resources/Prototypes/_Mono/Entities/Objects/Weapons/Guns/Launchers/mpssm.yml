@@ -42,9 +42,7 @@
     sprintModifier: 0.75
   - type: GunRequiresWield
   - type: WieldedCrosshair
-    rsi:
-      sprite: _RMC14/Interface/MousePointer/explosive_mouse.rsi
-      state: all
+  - type: WieldedCrosshair
   - type: WieldDelay
     baseDelay: 3
     modifiedDelay: 3
@@ -52,15 +50,7 @@
   - type: StaticPrice
     price: 7500
   - type: Appearance
-  - type: EmitSoundOnPickup
-    sound:
-      collection: RiflesPickUp
-  - type: EmitSoundOnDrop
-    sound:
-      collection: RiflesDrop
-  - type: EmitSoundOnLand
-    sound:
-      collection: RiflesDrop
+  # Removed pickup/drop/land sounds due to missing sound collections
 
 - type: entity
   parent: WeaponLauncherMPSSM

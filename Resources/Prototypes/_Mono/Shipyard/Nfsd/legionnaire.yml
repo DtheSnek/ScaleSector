@@ -7,7 +7,7 @@
   category: Small
   group: Security
   access: Security
-  shuttlePath: /Maps/_Mono/Shuttles/Nfsd/legionnaire.yml
+  shuttlePath: /Maps/_NF/Shuttles/vagabond.yml
   guidebookPage: Null
   class:
   - Pursuit
@@ -17,7 +17,7 @@
 - type: gameMap
   id: Legionnaire
   mapName: 'Legionnaire'
-  mapPath: /Maps/_Mono/Shuttles/Nfsd/legionnaire.yml
+  mapPath: /Maps/_NF/Shuttles/vagabond.yml
   minPlayers: 0
   stations:
     Legionnaire:

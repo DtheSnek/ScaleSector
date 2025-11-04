@@ -25,38 +25,13 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
-    board: MilitaryTechfabMachineCircuitboard
+    # board removed: prototype missing
   - type: Lathe
     producingSound: /Audio/Machines/circuitprinter.ogg
     idleState: icon
     runningState: icon
     dynamicPacks:
-    # rogue start
-    - MonoRogueWeaponsDynamicMelee
-    - MonoRogueWeaponsDynamicRanged
-    - MonoRogueVouchersDynamic
-    - MonoRogueMiscDynamic
-    - MonoRogueAmmo
-    - MonoRogueGearDynamic
-    - MonoRogueGearProDynamic
-    - MonoRogueSpecialAmmo
-    # TSF start
-    - MonoTSFWeaponsDynamicMelee
-    - MonoTSFWeaponsDynamicRanged
-    - MonoTSFVouchersDynamic
-    - MonoTSFMiscDynamic
-    - MonoTSFAmmo
-    - MonoTSFGearDynamic
-    - MonoTSFStructuresDynamic
-    - MonoTSFSpecialAmmo
-    # USSP start
-    - MonoUSSPVouchersDynamic
-    - MonoUSSPArmorDynamic
-    - MonoUSSPMiscDynamic
-    - MonoUSSPWeaponsDynamicRanged
-    - MonoUSSPAmmo
-    - MonoUSSPSpecialAmmo
-    # Universal shit (stuff like shipgun ammo)
+    # Universal content packs (available)
     - UniversalRailgunAmmo
     - UniversalMissileAmmo
     - UniversalShellAmmo

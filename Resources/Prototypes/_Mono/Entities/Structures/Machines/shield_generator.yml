@@ -106,17 +106,13 @@
         params:
           pitch: 0.5
   - type: Machine
-    board: MachineShieldMS500Circuitboard
+    # board removed: machine board prototype not available
   - type: Construction
     graph: Machine
     node: machine
-    containers:
-    - machine_board
-    - machine_parts
+    # machine board/parts containers removed due to missing machine board prototypes
   - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
+    # containers removed due to missing machine board prototypes
   - type: PirateBountyItem
     id: ShipShield
     
@@ -334,17 +330,13 @@
     energy: 1.5
     color: "#9933FF"
   - type: Machine
-    board: MachineShieldMS250Circuitboard
+    # board removed: machine board prototype not available
   - type: Construction
     graph: Machine
     node: machine
-    containers:
-    - machine_board
-    - machine_parts
+    # machine board/parts containers removed due to missing machine board prototypes
   - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
+    # containers removed due to missing machine board prototypes
   - type: PirateBountyItem
     id: ShipShield
 
@@ -416,16 +408,12 @@
     energy: 1.5
     color: "#3399FF"
   - type: Machine
-    board: MachineShieldMS100Circuitboard
+    # board removed: machine board prototype not available
   - type: Construction
     graph: Machine
     node: machine
-    containers:
-    - machine_board
-    - machine_parts
+    # machine board/parts containers removed due to missing machine board prototypes
   - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
+    # containers removed due to missing machine board prototypes
   - type: PirateBountyItem
     id: ShipShield
