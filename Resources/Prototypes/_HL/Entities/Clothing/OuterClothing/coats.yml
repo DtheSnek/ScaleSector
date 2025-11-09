@@ -36,7 +36,7 @@
         Caustic: 0.85
 
 - type: entity
-  parent: [ ClothingOuterStorageFoldableBase, BaseC1Contraband, ContrabandClothing ]
+  parent: [ ClothingOuterStorageBase, BaseC1Contraband, ContrabandClothing ]
   id: ClothingOuterSPArmoredCoat
   name: SP armored coat
   description: A standard issued armored coat from Stratos Pharmaceuticals, will protect you from the most basic dangers
