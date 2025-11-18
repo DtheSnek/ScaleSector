@@ -225,7 +225,7 @@
 #Empty security
 - type: entity
   id: JetpackSecurity
-  parent: [BaseJetpack, Class3Expedition] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: [BaseJetpack, BaseC3ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
   name: security jetpack
   suffix: Empty
   components:
