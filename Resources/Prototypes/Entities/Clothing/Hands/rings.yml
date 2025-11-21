@@ -98,6 +98,6 @@
       - state: ring
         color: "#ffc833"
       - state: gem
-        color: "ffbbff"
+        color: "#ffbbff"
   - type: StaticPrice
     price: 2200
