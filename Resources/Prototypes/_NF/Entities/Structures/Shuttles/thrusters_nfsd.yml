@@ -24,7 +24,7 @@
   suffix: TSFMC
   components:
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/nfsdgyroscope.rsi
+    sprite: _NF/Structures/Shuttles/gyroscope.rsi
     snapCardinals: true
   - type: Machine
     board: GyroscopeNfsdMachineCircuitboard
@@ -35,7 +35,7 @@
   suffix: DEBUG, TSFMC
   components:
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/nfsdgyroscope.rsi
+    sprite: _NF/Structures/Shuttles/gyroscope.rsi
     snapCardinals: true
   - type: Machine
     board: GyroscopeNfsdMachineCircuitboard
@@ -47,6 +47,6 @@
   suffix: TSFMC
   components:
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/nfsdgyroscope.rsi
+    sprite: _NF/Structures/Shuttles/gyroscope.rsi
   - type: Machine
     board: SmallGyroscopeNfsdMachineCircuitboard
