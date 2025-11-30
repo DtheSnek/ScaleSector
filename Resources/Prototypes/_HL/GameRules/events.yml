@@ -95,7 +95,7 @@
     - id: ClosetSkeleton
     - id: DragonSpawn
     - id: KingRatMigration
-    - id: NinjaSpawn
+    #- id: NinjaSpawn
     - id: ParadoxCloneSpawn
     #- id: RevenantSpawn
     - id: SleeperAgents
