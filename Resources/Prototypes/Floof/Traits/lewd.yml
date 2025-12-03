@@ -1,12 +1,6 @@
 - type: trait
   id: CumProducer
   category: Physical
-  requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Borg
-        - MedicalBorg
   components:
     - type: CumProducer
       solutionname: "penis"
@@ -21,12 +15,6 @@
 - type: trait
   id: MilkProducer
   category: Physical
-  requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - Borg
-        - MedicalBorg
   components:
     - type: MilkProducer
       solutionname: "breasts"

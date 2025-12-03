@@ -35,6 +35,7 @@ public sealed class LewdTraitSystem : EntitySystem
 
         //Verbs
         SubscribeLocalEvent<CumProducerComponent, GetVerbsEvent<InnateVerb>>(AddCumVerb);
+        SubscribeLocalEvent<CumProducerComponent, GetVerbsEvent<AlternativeVerb>>(AddCumInsideVerb);
         SubscribeLocalEvent<MilkProducerComponent, GetVerbsEvent<InnateVerb>>(AddMilkVerb);
         //SubscribeLocalEvent<SquirtProducerComponent, GetVerbsEvent<InnateVerb>>(AddSquirtVerb); //Unused-Trait is WIP
 
@@ -89,6 +90,27 @@ public sealed class LewdTraitSystem : EntitySystem
             Priority = 1
         };
         args.Verbs.Add(verbCum);
+    }
+
+    public void AddCumInsideVerb(Entity<CumProducerComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanInteract ||
+            !HasComp<CumProducerComponent>(args.User) ||
+            !EntityManager.HasComponent<RefillableSolutionComponent>(args.Target))
+            return;
+
+        _solutionContainer.EnsureSolution(entity.Owner, entity.Comp.SolutionName);
+
+        var user = args.User;
+        var target = args.Target;
+
+        AlternativeVerb verbCumInside = new()
+        {
+            Act = () => AttemptCum(entity, user, target),
+            Text = Loc.GetString("cum-verb-inside-text"),
+            Priority = 2
+        };
+        args.Verbs.Add(verbCumInside);
     }
 
     public void AddMilkVerb(Entity<MilkProducerComponent> entity, ref GetVerbsEvent<InnateVerb> args)
@@ -224,9 +246,8 @@ public sealed class LewdTraitSystem : EntitySystem
 
         var doargs = new DoAfterArgs(EntityManager, userUid, 5, new CummingDoAfterEvent(), lewd, lewd, used: containerUid)
         {
-            BreakOnUserMove = true,
+            BreakOnMove = true,
             BreakOnDamage = true,
-            BreakOnTargetMove = true,
             MovementThreshold = 1.0f,
         };
 
@@ -240,9 +261,8 @@ public sealed class LewdTraitSystem : EntitySystem
 
         var doargs = new DoAfterArgs(EntityManager, userUid, 5, new MilkingDoAfterEvent(), lewd, lewd, used: containerUid)
         {
-            BreakOnUserMove = true,
+            BreakOnMove = true,
             BreakOnDamage = true,
-            BreakOnTargetMove = true,
             MovementThreshold = 1.0f,
         };
 
@@ -268,7 +288,7 @@ public sealed class LewdTraitSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var queryCum = EntityQueryEnumerator<CumProducerComponent>(); //SquirtProducerComponent -unused , 
+        var queryCum = EntityQueryEnumerator<CumProducerComponent>(); //SquirtProducerComponent -unused ,
         var queryMilk = EntityQueryEnumerator<MilkProducerComponent>();
         var now = _timing.CurTime;
 
@@ -324,10 +344,10 @@ public sealed class LewdTraitSystem : EntitySystem
         //{
         //    containerSquirt.NextGrowth = now + containerSquirt.GrowthDelay;
 
-        //    
+        //
         //    if (EntityManager.TryGetComponent(uid, out HungerComponent? hunger))
         //    {
-        //        
+        //
         //        if (!(_hunger.GetHungerThreshold(hunger) < HungerThreshold.Okay))
         //            _hunger.ModifyHunger(uid, -containerSquirt.HungerUsage, hunger);
         //    }
