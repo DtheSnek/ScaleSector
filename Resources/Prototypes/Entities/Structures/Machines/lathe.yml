@@ -567,6 +567,8 @@
     # Hardlight Change
     - BorgArmorEnergy
     - BorgArmorPhys
+    - ShuttleWeaponMaterials
+    - LightShuttleWeapons
   - type: MaterialStorage
     canEjectStoredMaterials: true
     whitelist:
@@ -678,6 +680,11 @@
     - UniversalRailgunAmmo
     - UniversalShellAmmo
     - UniversalOrdinance
+    - ShuttleWeaponMaterials
+    - CapitalShuttleWeapons
+    - HeavyShuttleWeapons
+    - MediumShuttleWeapons
+    - LightShuttleWeapons
   - type: MaterialStorage
     canEjectStoredMaterials: true
     whitelist:
