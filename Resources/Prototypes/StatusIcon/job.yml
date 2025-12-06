@@ -495,3 +495,9 @@
     state: EngineeringBorg
   jobName: job-name-borg
 
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMedicalBorg
+  icon:
+    sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
+    state: MedicalBorg
