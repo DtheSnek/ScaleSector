@@ -65,7 +65,8 @@ public sealed class SpriteTrailServerSystem : EntitySystem
             }
             else
             {
-                // Head is effectively stationary: clear buffer so followers stop immediately
+                // Head is effectively stationary: mark inactive but preserve buffer
+                // so followers keep their spaced positions instead of collapsing.
                 _leaderActive[uid] = false;
             }
         }
@@ -76,7 +77,9 @@ public sealed class SpriteTrailServerSystem : EntitySystem
             if (follower.Leader == default || !_buffers.TryGetValue(follower.Leader, out var buf))
                 continue;
             var leaderIsActive = _leaderActive.TryGetValue(follower.Leader, out var active) && active;
-            // If we don't have enough history yet, fallback to leader's current transform
+            // Disable smoothing while leader is inactive; restore when active.
+            var smooth = leaderIsActive ? Math.Clamp(follower.SmoothFactor, 0f, 1f) : 0f;
+            // Determine target from buffer or leader
             (EntityCoordinates, Angle) target;
             if (buf.Count < follower.Delay)
             {
@@ -90,22 +93,35 @@ public sealed class SpriteTrailServerSystem : EntitySystem
             }
             // Use target position directly (no offset) so segments don't drift diagonally
             var targetWorld = target.Item1.ToMap(EntityManager, _xformSys);
-            if (!leaderIsActive || Vector2.Distance(xform.WorldPosition, targetWorld.Position) < 0.001f)
+            if (!leaderIsActive)
+            {
+                // If within deadzone to target, hold position; otherwise snap to target to avoid creeping overlap.
+                if (Vector2.Distance(xform.WorldPosition, targetWorld.Position) <= follower.StopDeadzone)
+                    continue;
+                _xformSys.SetCoordinates(uid, target.Item1);
+                continue;
+            }
+            if (Vector2.Distance(xform.WorldPosition, targetWorld.Position) < 0.001f)
             {
                 // Even when stationary, align rotation toward the leader's position
                 var dir = targetWorld.Position - xform.WorldPosition;
-                var desiredRot = dir.LengthSquared() > 0f
-                    ? Angle.FromDegrees((float)(Math.Atan2(dir.Y, dir.X) * 180.0 / Math.PI) + follower.RotationOffsetDeg)
-                    : target.Item2;
-                _xformSys.SetLocalRotation(uid, desiredRot);
+                if (dir.LengthSquared() > 0f)
+                {
+                    var desiredWorldRot = Angle.FromDegrees((float)(Math.Atan2(dir.Y, dir.X) * 180.0 / Math.PI) + follower.RotationOffsetDeg);
+                    var parentUid = xform.ParentUid;
+                    var parentWorldRot = parentUid != EntityUid.Invalid ? _xformSys.GetWorldRotation(parentUid) : Angle.Zero;
+                    var desiredLocalRot = desiredWorldRot - parentWorldRot;
+                    _xformSys.SetLocalRotation(uid, desiredLocalRot);
+                }
+                // else: keep current local rotation unchanged when perfectly aligned
                 continue;
             }
 
             // Smoothing: interpolate current position towards target
-            if (follower.SmoothFactor > 0f)
+            if (smooth > 0f)
             {
                 var currWorld = xform.WorldPosition;
-                var newPos = Vector2.Lerp(currWorld, targetWorld.Position, Math.Clamp(follower.SmoothFactor, 0f, 1f));
+                var newPos = Vector2.Lerp(currWorld, targetWorld.Position, smooth);
                 _xformSys.SetWorldPosition(uid, newPos);
             }
             else
@@ -114,18 +130,22 @@ public sealed class SpriteTrailServerSystem : EntitySystem
             }
             // Smoothly rotate to face the leader/target direction
             var dir2 = targetWorld.Position - _xformSys.GetWorldPosition(uid);
-            var desired = dir2.LengthSquared() > 0f
+            Angle desiredWorld = dir2.LengthSquared() > 0f
                 ? Angle.FromDegrees((float)(Math.Atan2(dir2.Y, dir2.X) * 180.0 / Math.PI) + follower.RotationOffsetDeg)
                 : target.Item2;
-            if (follower.SmoothFactor > 0f)
+
+            var pUid = xform.ParentUid;
+            var pWorldRot = pUid != EntityUid.Invalid ? _xformSys.GetWorldRotation(pUid) : Angle.Zero;
+            var desiredLocal = desiredWorld - pWorldRot;
+            if (smooth > 0f)
             {
                 var curr = xform.LocalRotation;
-                var newRotTheta = Robust.Shared.Maths.MathHelper.Lerp(curr.Theta, desired.Theta, Math.Clamp(follower.SmoothFactor, 0f, 1f));
+                var newRotTheta = Robust.Shared.Maths.MathHelper.Lerp(curr.Theta, desiredLocal.Theta, smooth);
                 _xformSys.SetLocalRotation(uid, Angle.FromDegrees((float)(newRotTheta * 180.0 / Math.PI)));
             }
             else
             {
-                _xformSys.SetLocalRotation(uid, desired);
+                _xformSys.SetLocalRotation(uid, desiredLocal);
             }
         }
     }

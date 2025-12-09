@@ -6,7 +6,12 @@ namespace Content.Shared.Lizards.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class LizardSegmentsComponent : Component
 {
-    public string BodyPrototype = "HL_LizardBody";
-    public string Body2Prototype = "HL_LizardBody2";
-    public string TailPrototype = "HL_LizardTailTip";
+    [DataField] public string BodyPrototype = string.Empty;
+    [DataField] public string Body2Prototype = string.Empty;
+    [DataField] public string TailPrototype = string.Empty;
+
+    // Optional uniform scales for each spawned segment. Defaults to 1.0 (no scaling).
+    [DataField] public float BodyScale = 1.0f;
+    [DataField] public float Body2Scale = 1.0f;
+    [DataField] public float TailScale = 1.0f;
 }

@@ -18,4 +18,6 @@ public sealed partial class TrailFollowerComponent : Component
     [DataField] public float Offset = 0.0f; // units behind along facing
     [DataField] public float SmoothFactor = 0.0f; // 0 = snap, 0.1..1 = interpolate
     [DataField] public float RotationOffsetDeg = -90f; // adjust sprite forward axis
+    // If follower is within this distance to its target while leader is inactive, do not advance.
+    [DataField] public float StopDeadzone = 0.1f;
 }

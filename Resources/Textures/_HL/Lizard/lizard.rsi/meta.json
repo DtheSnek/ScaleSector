@@ -10,8 +10,26 @@
     {
       "name": "segment"
     },
+	{
+     "name": "fronttassle"
+    },
+	{
+     "name": "backtassle"
+    },
+	{
+     "name": "frontcyan"
+    },
+	{
+     "name": "backcyan"
+    },
     {
      "name": "tip"
+    },
+	{
+     "name": "tailcyan"
+    },
+	{
+     "name": "tailtassle"
     },
     {
      "name": "lizardheadclosed",
