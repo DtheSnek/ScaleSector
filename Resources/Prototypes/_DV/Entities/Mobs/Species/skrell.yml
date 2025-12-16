@@ -144,6 +144,9 @@
         Brute:
           sprite: Mobs/Effects/brute_damage.rsi
           color: "#1d2cbf"
+    - type: InnatePsionicPowers
+  powersToAdd:
+    - TelepathyPower
 
 # Skrell dummy entity
 - type: entity
