@@ -81,6 +81,8 @@ public sealed class StationJobsTest
     private const int PlayerCount = 2000;
     private const int TotalPlayers = PlayerCount + CaptainCount;
 
+    private static readonly ProtoId<GameMapPrototype> FooStationId = "FooStation";
+
     [Test]
     public async Task AssignJobsTest()
     {
@@ -88,7 +90,6 @@ public sealed class StationJobsTest
         var server = pair.Server;
 
         var prototypeManager = server.ResolveDependency<IPrototypeManager>();
-        private static readonly ProtoId<GameMapPrototype> FooStationId = "FooStation";
         var fooStationProto = prototypeManager.Index<GameMapPrototype>(FooStationId);
         var entSysMan = server.ResolveDependency<IEntityManager>().EntitySysManager;
         var stationJobs = entSysMan.GetEntitySystem<StationJobsSystem>();

@@ -19,6 +19,7 @@ namespace Content.IntegrationTests.Tests.Destructible
     [TestOf(typeof(DamageThreshold))]
     public sealed class DestructibleThresholdActivationTest
     {
+        private static readonly ProtoId<DamageTypePrototype> TestBluntId = "TestBlunt";
         [Test]
         public async Task Test()
         {
@@ -61,7 +62,6 @@ namespace Content.IntegrationTests.Tests.Destructible
 
             await server.WaitAssertion(() =>
             {
-                private static readonly ProtoId<DamageTypePrototype> TestBluntId = "TestBlunt";
                 var bluntDamage = new DamageSpecifier(sPrototypeManager.Index<DamageTypePrototype>(TestBluntId), 10);
 
                 sDamageableSystem.TryChangeDamage(sDestructibleEntity, bluntDamage, true);

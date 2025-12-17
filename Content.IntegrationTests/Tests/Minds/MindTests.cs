@@ -50,6 +50,8 @@ public sealed partial class MindTests
         - !type:GibBehavior { }
 ";
 
+    private static readonly ProtoId<DamageTypePrototype> BluntProtoId = "Blunt";
+
     [Test]
     public async Task TestCreateAndTransferMindToNewEntity()
     {
@@ -144,7 +146,6 @@ public sealed partial class MindTests
         await server.WaitAssertion(() =>
         {
             var damageable = entMan.GetComponent<DamageableComponent>(entity);
-            private static readonly ProtoId<DamageTypePrototype> BluntProtoId = "Blunt";
 
             if (!protoMan.TryIndex<DamageTypePrototype>(BluntProtoId, out var prototype))
             {

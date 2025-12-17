@@ -10,7 +10,7 @@ namespace Content.IntegrationTests.Tests._Shitmed.Body;
 [TestFixture]
 public sealed class SpeciesBUiTest
 {
-    private static readonly ProtoId<EntityPrototype> BaseMobSpeciesTestId = "BaseMobSpeciesTest";
+    private static readonly EntProtoId BaseMobSpeciesTestId = "BaseMobSpeciesTest";
     [TestPrototypes]
     private const string Prototypes = @"
 - type: entity

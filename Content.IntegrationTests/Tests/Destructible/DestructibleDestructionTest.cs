@@ -12,6 +12,7 @@ namespace Content.IntegrationTests.Tests.Destructible
 {
     public sealed class DestructibleDestructionTest
     {
+        private static readonly ProtoId<DamageGroupPrototype> TestBruteId = "TestBrute";
         [Test]
         public async Task Test()
         {
@@ -39,7 +40,6 @@ namespace Content.IntegrationTests.Tests.Destructible
             await server.WaitAssertion(() =>
             {
                 var coordinates = sEntityManager.GetComponent<TransformComponent>(sDestructibleEntity).Coordinates;
-                private static readonly ProtoId<DamageGroupPrototype> TestBruteId = "TestBrute";
                 var bruteDamageGroup = sPrototypeManager.Index<DamageGroupPrototype>(TestBruteId);
                 DamageSpecifier bruteDamage = new(bruteDamageGroup, 50);
 

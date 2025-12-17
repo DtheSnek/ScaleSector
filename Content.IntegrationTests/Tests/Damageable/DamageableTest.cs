@@ -79,6 +79,17 @@ namespace Content.IntegrationTests.Tests.Damageable
     damageContainer: testDamageContainer
 ";
 
+        private static readonly ProtoId<DamageGroupPrototype> TestGroup1Id = "TestGroup1";
+        private static readonly ProtoId<DamageGroupPrototype> TestGroup2Id = "TestGroup2";
+        private static readonly ProtoId<DamageGroupPrototype> TestGroup3Id = "TestGroup3";
+
+        private static readonly ProtoId<DamageTypePrototype> TestDamage1Id = "TestDamage1";
+        private static readonly ProtoId<DamageTypePrototype> TestDamage2aId = "TestDamage2a";
+        private static readonly ProtoId<DamageTypePrototype> TestDamage2bId = "TestDamage2b";
+        private static readonly ProtoId<DamageTypePrototype> TestDamage3aId = "TestDamage3a";
+        private static readonly ProtoId<DamageTypePrototype> TestDamage3bId = "TestDamage3b";
+        private static readonly ProtoId<DamageTypePrototype> TestDamage3cId = "TestDamage3c";
+
         [Test]
         public async Task TestDamageableComponents()
         {
@@ -117,16 +128,7 @@ namespace Content.IntegrationTests.Tests.Damageable
                 sDamageableComponent = sEntityManager.GetComponent<DamageableComponent>(sDamageableEntity);
                 sDamageableSystem = sEntitySystemManager.GetEntitySystem<DamageableSystem>();
 
-                private static readonly ProtoId<DamageGroupPrototype> TestGroup1Id = "TestGroup1";
-                private static readonly ProtoId<DamageGroupPrototype> TestGroup2Id = "TestGroup2";
-                private static readonly ProtoId<DamageGroupPrototype> TestGroup3Id = "TestGroup3";
 
-                private static readonly ProtoId<DamageTypePrototype> TestDamage1Id = "TestDamage1";
-                private static readonly ProtoId<DamageTypePrototype> TestDamage2aId = "TestDamage2a";
-                private static readonly ProtoId<DamageTypePrototype> TestDamage2bId = "TestDamage2b";
-                private static readonly ProtoId<DamageTypePrototype> TestDamage3aId = "TestDamage3a";
-                private static readonly ProtoId<DamageTypePrototype> TestDamage3bId = "TestDamage3b";
-                private static readonly ProtoId<DamageTypePrototype> TestDamage3cId = "TestDamage3c";
 
                 group1 = sPrototypeManager.Index<DamageGroupPrototype>(TestGroup1Id);
                 group2 = sPrototypeManager.Index<DamageGroupPrototype>(TestGroup2Id);

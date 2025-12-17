@@ -12,6 +12,8 @@ namespace Content.IntegrationTests.Tests.Destructible
     [TestOf(typeof(AndTrigger))]
     public sealed class DestructibleDamageTypeTest
     {
+        private static readonly ProtoId<DamageTypePrototype> TestBluntId = "TestBlunt";
+        private static readonly ProtoId<DamageTypePrototype> TestSlashId = "TestSlash";
         [Test]
         public async Task Test()
         {
@@ -49,8 +51,6 @@ namespace Content.IntegrationTests.Tests.Destructible
 
             await server.WaitAssertion(() =>
             {
-                private static readonly ProtoId<DamageTypePrototype> TestBluntId = "TestBlunt";
-                private static readonly ProtoId<DamageTypePrototype> TestSlashId = "TestSlash";
                 var bluntDamageType = protoManager.Index<DamageTypePrototype>(TestBluntId);
                 var slashDamageType = protoManager.Index<DamageTypePrototype>(TestSlashId);
 
