@@ -16,16 +16,15 @@ namespace Content.Client._FarHorizons.Power.UI;
 /// Initializes a <see cref="TurbineWindow"/> and updates it when new server messages are received.
 /// </summary>
 [UsedImplicitly]
-public sealed class TurbineBoundUserInterface : BoundUserInterface, IBuiPreTickUpdate
+public sealed class TurbineBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IClientGameTiming _gameTiming = null!;
+    [Dependency] private readonly IEntityManager _entityManager = null!;
 
     [ViewVariables]
     private TurbineWindow? _window;
 
     private BuiPredictionState? _pred;
-    private InputCoalescer<float> _flowRateCoalescer;
-    private InputCoalescer<float> _statorLoadCoalescer;
 
     public TurbineBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -40,19 +39,16 @@ public sealed class TurbineBoundUserInterface : BoundUserInterface, IBuiPreTickU
 
         _window = this.CreateWindow<TurbineWindow>();
         _window.SetEntity(Owner);
+        _window.TurbineFlowRateChanged += val =>
+        {
+            _pred?.SendMessage(new TurbineChangeFlowRateMessage(val));
+        };
 
-        _window.TurbineFlowRateChanged += val => _flowRateCoalescer.Set(val);
-        _window.TurbineStatorLoadChanged += val => _statorLoadCoalescer.Set(val);
+        _window.TurbineStatorLoadChanged += val =>
+        {
+            _pred?.SendMessage(new TurbineChangeStatorLoadMessage(val));
+        };
         Update();
-    }
-
-    void IBuiPreTickUpdate.PreTickUpdate()
-    {
-        if (_flowRateCoalescer.CheckIsModified(out var flowRateValue))
-            _pred!.SendMessage(new TurbineChangeFlowRateMessage(flowRateValue));
-
-        if (_statorLoadCoalescer.CheckIsModified(out var statorLoadValue))
-            _pred!.SendMessage(new TurbineChangeStatorLoadMessage(statorLoadValue));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -60,16 +56,19 @@ public sealed class TurbineBoundUserInterface : BoundUserInterface, IBuiPreTickU
         if (state is not TurbineBuiState turbineState)
             return;
 
+        if (!_entityManager.TryGetComponent<TurbineComponent>(Owner, out var comp))
+            return;
+
         foreach (var replayMsg in _pred!.MessagesToReplay())
         {
             switch (replayMsg)
             {
                 case TurbineChangeFlowRateMessage setFlowRate:
-                    turbineState.FlowRate = setFlowRate.FlowRate;
+                    turbineState.FlowRate = Math.Clamp(setFlowRate.FlowRate, 0f, comp.FlowRateMax);
                     break;
 
                 case TurbineChangeStatorLoadMessage setStatorLoad:
-                    turbineState.StatorLoad = Math.Clamp(setStatorLoad.StatorLoad, 1000f, 500000f); // The nasty hard-coded gremlin
+                    turbineState.StatorLoad = Math.Clamp(setStatorLoad.StatorLoad, 0f, comp.StatorLoadMax);
                     break;
             }
         }

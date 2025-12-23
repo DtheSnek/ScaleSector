@@ -440,6 +440,23 @@ public sealed class RoundPersistenceSystem : EntitySystem
                 continue;
             }
 
+            // Skip stations with BecomesStationComponent on their grids (map-defined stations that respawn each round)
+            var isMapStation = false;
+            foreach (var grid in stationData.Grids)
+            {
+                if (HasComp<Content.Server.Station.Components.BecomesStationComponent>(grid))
+                {
+                    isMapStation = true;
+                    break;
+                }
+            }
+
+            if (isMapStation)
+            {
+                //_sawmill.Debug($"Skipping persistence save for map-defined station {stationMeta.EntityName}");
+                continue;
+            }
+
             var stationName = stationMeta.EntityName;
             SaveStationData(stationUid, stationData, stationName, persistence);
         }
@@ -620,6 +637,23 @@ public sealed class RoundPersistenceSystem : EntitySystem
         // Guard: Station may already be gone due to round transitions
         if (!EntityManager.EntityExists(stationUid) || TerminatingOrDeleted(stationUid) || !TryComp(stationUid, out MetaDataComponent? stationMeta))
             return;
+
+        // Skip stations with BecomesStationComponent on their grids (map-defined stations that respawn each round)
+        var isMapStation = false;
+        foreach (var grid in stationData.Grids)
+        {
+            if (HasComp<Content.Server.Station.Components.BecomesStationComponent>(grid))
+            {
+                isMapStation = true;
+                break;
+            }
+        }
+
+        if (isMapStation)
+        {
+            //_sawmill.Debug($"Skipping persistence restore for map-defined station {stationMeta.EntityName}");
+            return;
+        }
 
         var stationName = stationMeta.EntityName;
         //_sawmill.Info($"Restoring data for station: {stationName}");
@@ -894,7 +928,16 @@ public sealed class RoundPersistenceSystem : EntitySystem
             var stationName = MetaData(uid).EntityName;
             if (component.Missions.Count > 0 || component.ActiveMission != 0)
             {
-                SaveStationData(uid, Comp<StationDataComponent>(uid), stationName, persistence);
+                // Only save if the station has StationDataComponent; otherwise skip to avoid shutdown exceptions
+                if (TryComp<StationDataComponent>(uid, out var stationData))
+                {
+                    SaveStationData(uid, stationData, stationName, persistence);
+                }
+                else
+                {
+                    // Optional: log at debug level to avoid noisy errors during ship cleanup
+                    //_sawmill.Debug($"Skipping expedition data save for {stationName}: missing StationDataComponent.");
+                }
                 //_sawmill.Info($"Emergency save of expedition data for {stationName}");
             }
         }

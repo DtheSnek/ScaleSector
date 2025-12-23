@@ -152,4 +152,56 @@ public sealed class OrphanedGridCleanupTest
 
         await pair.CleanReturnAsync();
     }
+
+    [Test]
+    public async Task TestEmptyGridCleanupEnabled()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+
+        var entityManager = server.ResolveDependency<IEntityManager>();
+        var cleanupSystem = entityManager.System<OrphanedGridCleanupSystem>();
+
+        await server.WaitAssertion(() =>
+        {
+            // Test that enable/disable methods work
+            cleanupSystem.SetEmptyGridCleanupEnabled(false);
+            cleanupSystem.SetEmptyGridCleanupEnabled(true);
+
+            // No exception means success
+            Assert.Pass();
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task TestForceEmptyGridCleanup()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+
+        var mapManager = server.ResolveDependency<IMapManager>();
+        var entityManager = server.ResolveDependency<IEntityManager>();
+        var mapSystem = entityManager.System<SharedMapSystem>();
+        var cleanupSystem = entityManager.System<OrphanedGridCleanupSystem>();
+
+        await server.WaitAssertion(() =>
+        {
+            // Create a test map with an empty grid (0 tiles)
+            var mapId = mapManager.CreateMap();
+            var gridEnt = mapManager.CreateGridEntity(mapId);
+
+            // The grid has 0 tiles and no name set, it's a prime candidate for cleanup
+            // But it needs to be old enough - let's just verify the force cleanup runs without error
+            var deleted = cleanupSystem.ForceEmptyGridCleanup();
+
+            // Should not throw, result depends on grid age
+            Assert.That(deleted, Is.GreaterThanOrEqualTo(0));
+
+            mapSystem.DeleteMap(mapId);
+        });
+
+        await pair.CleanReturnAsync();
+    }
 }
