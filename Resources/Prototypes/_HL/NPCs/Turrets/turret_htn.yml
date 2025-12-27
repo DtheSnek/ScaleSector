@@ -5,7 +5,7 @@
   id: NearbyShuttleDeedGridTargets
   query:
   - !type:NearbyShuttleDeedGridsQuery
-    range: 2000
+    range: 500
     blacklist:
       tags:
       - ShuttleAIIgnore
@@ -42,7 +42,7 @@
         removeKeyOnFinish: false
         leadingAccuracy: 0.6
         requireAnchored: false
-        maxTargetingRange: 2000
+        maxTargetingRange: 75
         targetKey: TargetCoordinates
       services:
       - !type:UtilityService

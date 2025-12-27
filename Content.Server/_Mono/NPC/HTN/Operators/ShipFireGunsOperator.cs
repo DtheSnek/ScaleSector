@@ -52,7 +52,7 @@ public sealed partial class ShipFireGunsOperator : HTNOperator, IHtnConditionalS
     /// Stop targeting if beyond this range.
     /// </summary>
     [DataField]
-    public float MaxTargetingRange = 2000f;
+    public float MaxTargetingRange = 75f;
 
     private const string TargetingCancelToken = "ShipTargetingCancelToken";
 

@@ -189,22 +189,22 @@
       prob: 0.005
       orGroup: wreck
     - id: XenoborgDroneLbyte
-      prob: 0.004
+      prob: 0.05
       orGroup: wreck
     - id: XenoborgDroneLgbyte
-      prob: 0.002
+      prob: 0.02
       orGroup: wreck
     - id: XenoborgDroneMbyte
-      prob: 0.003
+      prob: 0.03
       orGroup: wreck
     - id: XenoborgDroneMgbyte
-      prob: 0.002
+      prob: 0.02
       orGroup: wreck
     - id: XenoborgDroneMtbyte
-      prob: 0.001
+      prob: 0.01
       orGroup: wreck
     - id: XenoborgDroneSgbyte
-      prob: 0.002
+      prob: 0.02
       orGroup: wreck
     # Regular wrecks
     - id: NFWreckDebrisBrassLarge
