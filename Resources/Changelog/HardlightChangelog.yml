@@ -139,3 +139,9 @@ Entries:
       message: Paramedic hoverbikes move again
   id: 15
   time: '2026-01-03T01:30:45.0000000+00:00'
+- author: Mariiibo
+  changes:
+    - type: Fix
+      message: Fixed a bunch of guidebook entry organization.
+  id: 16
+  time: '2026-01-03T01:34:17.0000000+00:00'
