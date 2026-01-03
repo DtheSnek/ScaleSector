@@ -163,3 +163,11 @@ Entries:
       message: Fixed the rest of the guidebook errors.
   id: 19
   time: '2026-01-03T18:11:58.0000000+00:00'
+- author: carccborg
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced thruster plume damage from 1400 Heat per second to 140 Heat per
+        second.
+  id: 20
+  time: '2026-01-03T18:12:40.0000000+00:00'
