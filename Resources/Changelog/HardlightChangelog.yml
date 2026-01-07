@@ -271,3 +271,9 @@ Entries:
         changes to fit Hardlight.
   id: 29
   time: '2026-01-07T04:41:20.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Add
+      message: 'Adds new high tier traits as well as some bug fixes. '
+  id: 30
+  time: '2026-01-07T06:45:36.0000000+00:00'
