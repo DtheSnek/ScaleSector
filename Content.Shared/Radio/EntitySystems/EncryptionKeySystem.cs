@@ -168,7 +168,8 @@ public sealed partial class EncryptionKeySystem : EntitySystem
     {
         if (!args.IsInDetailsRange
             || !component.ExamineWhileLocked && !component.KeysUnlocked // Goobstation
-            || !component.ExamineWhileLocked && TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open) // Goobstation
+            || !component.ExamineWhileLocked && TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open // Goobstation
+            || !component.ShowOnExamine) // HardLight
             return;
 
         if (component.KeyContainer.ContainedEntities.Count == 0)
