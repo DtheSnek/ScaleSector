@@ -419,3 +419,9 @@ Entries:
         purposes 
   id: 40
   time: '2026-01-14T00:31:10.0000000+00:00'
+- author: Warcrazed
+  changes:
+    - type: Fix
+      message: Fixed Deaddrop system to properly work
+  id: 41
+  time: '2026-01-15T00:40:01.0000000+00:00'
