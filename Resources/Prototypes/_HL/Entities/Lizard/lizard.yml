@@ -2,6 +2,7 @@
   id: HL_LizardHead
   parent: BaseMobCarp
   name: lizard head
+  description: eats Wawas
   abstract: true
   components:
   - type: Sprite
