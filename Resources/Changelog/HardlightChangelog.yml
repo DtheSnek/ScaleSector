@@ -670,3 +670,11 @@ Entries:
         Eastern Dragon (Usiki)
   id: 70
   time: '2026-01-24T06:40:45.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Add
+      message: >-
+        Jump Boots are now able to be crafted at a protolathe after the
+        appropriate research has been done.
+  id: 71
+  time: '2026-01-24T07:00:22.0000000+00:00'
