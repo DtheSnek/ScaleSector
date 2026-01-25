@@ -725,3 +725,12 @@ Entries:
       message: More improvements on Eaglerock
   id: 76
   time: '2026-01-25T09:29:37.0000000+00:00'
+- author: TrylobyteWasTaken
+  changes:
+    - type: Tweak
+      message: >-
+        You can now use an Automation Upgrade Kit on a material reclaimer to
+        allow for the automated removal of liquid via liquid pump.  Don't let it
+        eat your tools.
+  id: 77
+  time: '2026-01-25T09:32:35.0000000+00:00'
