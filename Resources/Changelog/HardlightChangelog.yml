@@ -768,3 +768,9 @@ Entries:
       message: Eaglerock now has infinite contractor slots
   id: 81
   time: '2026-01-28T04:44:12.0000000+00:00'
+- author: warcrazed11
+  changes:
+    - type: Add
+      message: Added the ability to opt out of paradox clone targetting.
+  id: 82
+  time: '2026-01-28T04:44:52.0000000+00:00'
