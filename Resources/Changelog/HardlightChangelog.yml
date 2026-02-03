@@ -882,3 +882,13 @@ Entries:
       message: Fixed multiple bugs with shadekin.
   id: 93
   time: '2026-02-02T17:26:45.0000000+00:00'
+- author: Suraru
+  changes:
+    - type: Fix
+      message: Fixed steel stairs being unbuildable
+    - type: Fix
+      message: Fixed poster node mismatch
+    - type: Fix
+      message: Fixed automatic spacer role allocation
+  id: 94
+  time: '2026-02-03T19:31:57.0000000+00:00'
