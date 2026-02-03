@@ -904,3 +904,11 @@ Entries:
       message: Added Early launch back!
   id: 96
   time: '2026-02-03T19:35:32.0000000+00:00'
+- author: Suraru
+  changes:
+    - type: Add
+      message: >-
+        Added a ton of player companies, canon companies, a couple antag
+        companies, and made USSP public
+  id: 97
+  time: '2026-02-03T19:43:39.0000000+00:00'
