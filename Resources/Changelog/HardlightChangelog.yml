@@ -1002,3 +1002,9 @@ Entries:
       message: Shadekin performance fix
   id: 104
   time: '2026-02-06T22:09:59.0000000+00:00'
+- author: TrylobyteWasTaken
+  changes:
+    - type: Add
+      message: Bluespace Cryobeakers.  Like cryobeakers, but bluespace.  Per request.
+  id: 105
+  time: '2026-02-06T22:10:11.0000000+00:00'
