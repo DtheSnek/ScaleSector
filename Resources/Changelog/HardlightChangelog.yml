@@ -966,3 +966,23 @@ Entries:
       message: stamina damage for pillow fights
   id: 102
   time: '2026-02-06T21:09:32.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Add
+      message: Added early expedition leaving
+    - type: Add
+      message: Added Grid Expedition cooldown
+    - type: Add
+      message: Added proper expedition cleanup
+    - type: Fix
+      message: Fixed Substation spawning
+    - type: Fix
+      message: Fixed Expedition runner
+    - type: Fix
+      message: Fixed Green zone on Radar
+    - type: Fix
+      message: Fixed Atmos PVS distance
+    - type: Fix
+      message: 'Fixed depot spawn locations. '
+  id: 103
+  time: '2026-02-06T21:11:17.0000000+00:00'
