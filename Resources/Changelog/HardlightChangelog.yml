@@ -942,3 +942,19 @@ Entries:
       message: Gives the freelancers their own comms.
   id: 100
   time: '2026-02-06T21:02:55.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Add
+      message: Resomi now have the ability to leap short distances like Vulpkanin can.
+    - type: Remove
+      message: Tiger Cooperative can no longer be selected as a starting company.
+    - type: Fix
+      message: ID Card Computer UI should no longer have a seizure on interaction.
+    - type: Fix
+      message: Female Vulpkanin displacements now correctly appear when in the lobby.
+    - type: Fix
+      message: Toggleable glow markings now once again work.
+    - type: Fix
+      message: Toggleable glow markings no longer reset height sliders when selected.
+  id: 101
+  time: '2026-02-06T21:05:22.0000000+00:00'
