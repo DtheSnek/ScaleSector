@@ -1008,3 +1008,13 @@ Entries:
       message: Bluespace Cryobeakers.  Like cryobeakers, but bluespace.  Per request.
   id: 105
   time: '2026-02-06T22:10:11.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Add
+      message: New markings inspired by Xenomorphs are now available for Reptilians.
+    - type: Add
+      message: >-
+        Synths now have access to two new tails inspired by Xenomorphs, as well
+        as a set of lights for them.
+  id: 106
+  time: '2026-02-09T23:08:59.0000000+00:00'
