@@ -1070,3 +1070,17 @@ Entries:
       message: Biting and checking out as interaction options
   id: 111
   time: '2026-02-09T23:47:00.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Add
+      message: Added a new Xenoborg AI ship
+    - type: Add
+      message: Added the basis of new ship guns
+    - type: Tweak
+      message: 'tweaked the settings for the AI targeting '
+    - type: Tweak
+      message: 'tweaked LOS so AI will try to shoot through windows '
+    - type: Fix
+      message: Fixed server side errors causing lag in two places
+  id: 112
+  time: '2026-02-10T00:19:53.0000000+00:00'
