@@ -1084,3 +1084,9 @@ Entries:
       message: Fixed server side errors causing lag in two places
   id: 112
   time: '2026-02-10T00:19:53.0000000+00:00'
+- author: fenndragon
+  changes:
+    - type: Fix
+      message: Fixed xenoborg targeting
+  id: 113
+  time: '2026-02-10T07:38:57.0000000+00:00'
