@@ -64,12 +64,10 @@ public sealed class RoboticArmSystem : EntitySystem
         base.Update(frameTime);
 
         var now = _timing.CurTime;
-        
-        // Hardlight change: Changed from < to > (was causing it to run 30 times a second!!)
-        if (now < _nextUpdate)
+        if (_nextUpdate < now)
             return;
-		// Harlight change:changed from += to = now +
-        _nextUpdate = now + _updateDelay;
+
+        _nextUpdate += _updateDelay;
 
         var query = EntityQueryEnumerator<RoboticArmComponent>();
         while (query.MoveNext(out var uid, out var comp))

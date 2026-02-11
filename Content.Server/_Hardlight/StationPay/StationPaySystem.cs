@@ -35,10 +35,6 @@ public sealed class StationPaySystem : EntitySystem
     private OrderedDictionary<EntityUid, int> _scheduledPayouts = new();
     private bool _roundEndProcessed; // ensure payouts run once per round
 
-    // Performance fix: only check payouts once per minute instead of every tick
-    private TimeSpan _nextCheck = TimeSpan.Zero;
-    private const float CheckInterval = 60.0f; // Check every 60 seconds
-
     public override void Initialize()
     {
         base.Initialize();
@@ -231,19 +227,12 @@ public sealed class StationPaySystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var now = _gameTicker.RoundDuration();
-        // Since payouts are hourly, we dont REALLY need this checked every tick
-        if (now < _nextCheck)
-            return;
-        
-        _nextCheck = now + TimeSpan.FromSeconds(CheckInterval);
-
-        var nowSeconds = (int)now.TotalSeconds;
+        var now = (int)_gameTicker.RoundDuration().TotalSeconds;
         var updated = new Lazy<OrderedDictionary<EntityUid, int>>(() => new OrderedDictionary<EntityUid, int>(_scheduledPayouts));
 
         foreach (var (uid, scheduledPayoutTime) in _scheduledPayouts)
         {
-            if (scheduledPayoutTime > nowSeconds)
+            if (scheduledPayoutTime > now)
                 continue;
 
             var dict = updated.Value;
